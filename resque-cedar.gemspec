@@ -2,13 +2,13 @@ $LOAD_PATH.unshift 'lib'
 require 'resque/version'
 
 Gem::Specification.new do |s|
-  s.name              = "resque"
+  s.name              = "resque-cedar"
   s.version           = Resque::Version
   s.date              = Time.now.strftime('%Y-%m-%d')
-  s.summary           = "Resque is a Redis-backed queueing system."
-  s.homepage          = "http://github.com/defunkt/resque"
-  s.email             = "chris@ozmm.org"
-  s.authors           = [ "Chris Wanstrath", "Terence Lee" ]
+  s.summary           = "A patched version of Resque that interprets Heroku's TERM as a graceful shutdown."
+  s.homepage          = "http://github.com/mjezzi/resque-cedar"
+  s.email             = "mjezzi2@gmail.com"
+  s.authors           = [ "Chris Wanstrath", "Terence Lee", "Mike AbiEzzi" ]
 
   s.files             = %w( README.markdown Rakefile LICENSE HISTORY.md )
   s.files            += Dir.glob("lib/**/*")
@@ -27,6 +27,10 @@ Gem::Specification.new do |s|
   s.add_dependency "multi_json",      "~> 1.0"
 
   s.description = <<description
+    A patched version of Resque that interprets Heroku's TERM as a graceful shutdown. 
+    Visit http://quickleft.com/blog/heroku-s-cedar-stack-will-kill-your-resque-workers 
+    for more information.
+    
     Resque is a Redis-backed Ruby library for creating background jobs,
     placing those jobs on multiple queues, and processing them later.
 
